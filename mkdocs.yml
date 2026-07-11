@@ -4,5 +4,6 @@ theme:
 nav:
   - Home: index.md
   - Architecture: architecture.md
+  - How It Works: how-it-works.md
   - API: api.md
   - Deployment: deployment.md
