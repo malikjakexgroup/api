@@ -1,9 +1,9 @@
-# book-docs
+# api — spec &amp; docs
 
-> 🧩 Part of the **[Book Platform](https://github.com/malikjakexgroup/book-platform)** — a multi-repo book discovery app.
-> Repos: [book-backend](https://github.com/malikjakexgroup/book-backend) · [book-web](https://github.com/malikjakexgroup/book-web) · **book-docs**
+> 📖 The **api** repo of the Book Platform — OpenAPI spec, interactive **Swagger**, and architecture docs for the **[backend](https://github.com/malikjakexgroup/backend)**.
+> Repos: [frontend](https://github.com/malikjakexgroup/frontend) · [backend](https://github.com/malikjakexgroup/backend) · **api**
 
-[![CI](https://github.com/malikjakexgroup/book-docs/actions/workflows/ci.yml/badge.svg)](https://github.com/malikjakexgroup/book-docs/actions/workflows/ci.yml)
+[![CI](https://github.com/malikjakexgroup/api/actions/workflows/ci.yml/badge.svg)](https://github.com/malikjakexgroup/api/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Architecture, API, and deployment docs. Static site via MkDocs (Material theme).
