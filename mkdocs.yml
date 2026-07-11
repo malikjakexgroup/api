@@ -1,0 +1,8 @@
+site_name: Book Platform Docs
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - API: api.md
+  - Deployment: deployment.md
