@@ -3,6 +3,9 @@
 The WordPress backend exposes the public API under `/wp-json/books/v1/` (default host
 `http://localhost:8080`). WordPress also serves a route index at `/wp-json/`.
 
+> 👉 Prefer an interactive view? See the **[Swagger API Reference](swagger.md)** —
+> expand each endpoint, see schemas, and try live requests. Spec: [`openapi.yaml`](openapi.yaml).
+
 ## Endpoints
 
 | Method | Path | Description |

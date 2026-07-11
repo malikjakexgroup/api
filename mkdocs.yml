@@ -1,4 +1,6 @@
 site_name: Book Platform Docs
+site_url: https://malikjakexgroup.github.io/book-docs/
+use_directory_urls: false
 theme:
   name: material
 nav:
@@ -6,4 +8,5 @@ nav:
   - Architecture: architecture.md
   - How It Works: how-it-works.md
   - API: api.md
+  - API Reference (Swagger): swagger.md
   - Deployment: deployment.md
