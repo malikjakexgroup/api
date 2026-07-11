@@ -1,0 +1,970 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://malikjakexgroup.github.io/book-docs/architecture.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="how-it-works.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Architecture - Book Platform Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Book Platform Docs" class="md-header__button md-logo" aria-label="Book Platform Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Book Platform Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Book Platform Docs" class="md-nav__button md-logo" aria-label="Book Platform Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Book Platform Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="architecture.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-middle-man-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The middle man (gateway)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-component-container-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Component / container view
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-three-repo-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Three-repo map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-flow-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Flow — Search
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-flow-book-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Flow — Book detail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-flow-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Flow — Authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-backend-internal-pipeline-function-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Backend internal pipeline (function-level)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-resilience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Resilience
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Data model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="how-it-works.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How It Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="swagger.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference (Swagger)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="deployment.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-middle-man-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The middle man (gateway)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-component-container-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Component / container view
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-three-repo-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Three-repo map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-flow-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Flow — Search
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-flow-book-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Flow — Book detail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-flow-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Flow — Authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-backend-internal-pipeline-function-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Backend internal pipeline (function-level)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-resilience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Resilience
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Data model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="architecture">Architecture</h1>
+<p>Full architecture of the <strong>Book Platform</strong> — a three-repository book discovery app:
+a <strong>React</strong> frontend, a <strong>WordPress</strong> backend that <em>is</em> the API (the middle man), and
+<strong>Google Books</strong> as the data source. Every diagram renders natively on GitHub (Mermaid).</p>
+<p><strong>Repos:</strong> <code>frontend</code> (React) · <code>backend</code> (WordPress + API) · <code>api</code> (this — spec, Swagger, docs)</p>
+<hr />
+<h2 id="1-the-middle-man-gateway">1. The middle man (gateway)</h2>
+<p>The frontend never talks to Google. <strong>The backend sits in the middle</strong> — it decides,
+stores, hides the API key, and serves clean data.</p>
+<pre><code class="language-mermaid">flowchart LR
+    browser[&quot;⚛️ frontend&lt;br/&gt;React&quot;]
+    api[&quot;🎯 backend — the middle man&lt;br/&gt;WordPress (the API)&quot;]
+    db[(&quot;🗄️ Database&lt;br/&gt;saved books&quot;)]
+    google[&quot;🌐 Google Books&lt;br/&gt;external source&quot;]
+
+    browser --&gt;|&quot;asks&quot;| api
+    api --&gt;|&quot;answers&quot;| browser
+    api --&gt;|&quot;read / write&quot;| db
+    api --&gt;|&quot;only for NEW books&quot;| google
+
+    classDef mid fill:#e5efe9,stroke:#2f6b57,stroke-width:2px,color:#1c3f34;
+    classDef ext fill:#f0e7d6,stroke:#9c6f2f,color:#4a3412;
+    class api mid;
+    class google ext;
+</code></pre>
+<hr />
+<h2 id="2-component-container-view">2. Component / container view</h2>
+<pre><code class="language-mermaid">flowchart TB
+    subgraph client[&quot;Client (browser)&quot;]
+        web[&quot;⚛️ frontend — React SPA&lt;br/&gt;pages · hooks · api.js&quot;]
+    end
+
+    subgraph wp[&quot;🔌 backend — WordPress plugin (the API)&quot;]
+        direction TB
+        rest[&quot;REST controller&lt;br/&gt;rest.php&quot;]
+        auth[&quot;Auth&lt;br/&gt;auth.php · tokens&quot;]
+        gb[&quot;Google client&lt;br/&gt;google-books.php&quot;]
+        store[&quot;Storage&lt;br/&gt;store.php · book CPT&quot;]
+        cache[&quot;Cache&lt;br/&gt;cache.php · transients&quot;]
+    end
+
+    admin[&quot;🛠️ wp-admin&quot;]
+    db[(&quot;🗄️ MySQL / SQLite&quot;)]
+    google[&quot;🌐 Google Books API&quot;]
+
+    web --&gt;|&quot;HTTPS · JSON&lt;br/&gt;/wp-json/books/v1/*&quot;| rest
+    rest --&gt; auth
+    rest --&gt; cache
+    rest --&gt; store
+    rest --&gt; gb
+    gb --&gt;|&quot;new queries only&quot;| google
+    store --&gt; db
+    auth --&gt; db
+    admin --&gt; db
+
+    classDef ext fill:#f0e7d6,stroke:#9c6f2f,color:#4a3412;
+    class google ext;
+</code></pre>
+<hr />
+<h2 id="3-three-repo-map">3. Three-repo map</h2>
+<pre><code class="language-mermaid">flowchart TB
+    frontend[&quot;⚛️ frontend&lt;br/&gt;React app&quot;]
+    backend[&quot;🔌 backend&lt;br/&gt;WordPress + API&quot;]
+    apidocs[&quot;📖 api&lt;br/&gt;OpenAPI · Swagger · docs&quot;]
+
+    frontend --&gt;|&quot;REST API (runtime)&quot;| backend
+    apidocs -. documents .-&gt; backend
+    apidocs -. documents .-&gt; frontend
+</code></pre>
+<p>Each box is an <strong>independent Git repository</strong> — built, tested, and deployed on its own.</p>
+<hr />
+<h2 id="4-flow-search">4. Flow — Search</h2>
+<pre><code class="language-mermaid">sequenceDiagram
+    actor U as User
+    participant W as frontend (React)
+    participant B as backend (API)
+    participant D as Database
+    participant G as Google Books
+
+    U-&gt;&gt;W: search &quot;atomic habits&quot;
+    W-&gt;&gt;B: GET /books/v1/search?q=
+    B-&gt;&gt;D: bb_search_stored(q)
+    alt Already saved
+        D--&gt;&gt;B: matching books
+        B--&gt;&gt;W: 200 — saved books (0 Google calls)
+    else New query
+        B-&gt;&gt;G: fetch from Google
+        alt Google OK
+            G--&gt;&gt;B: results
+            B-&gt;&gt;D: bb_upsert_book() — store permanently
+            B--&gt;&gt;W: 200 — books
+        else Google down / rate-limited
+            B--&gt;&gt;W: 503 — never fabricated data
+        end
+    end
+    W--&gt;&gt;U: render book grid
+</code></pre>
+<hr />
+<h2 id="5-flow-book-detail">5. Flow — Book detail</h2>
+<pre><code class="language-mermaid">sequenceDiagram
+    actor U as User
+    participant W as frontend
+    participant B as backend
+    participant D as Database
+    participant G as Google Books
+
+    U-&gt;&gt;W: open a book
+    W-&gt;&gt;B: GET /books/v1/book/{id}
+    B-&gt;&gt;D: bb_find_book_post(id)
+    alt Saved
+        D--&gt;&gt;B: book
+        B--&gt;&gt;W: 200 — saved (permanent)
+    else Not saved yet
+        B-&gt;&gt;G: bb_google_get(id)
+        alt Found
+            G--&gt;&gt;B: book
+            B-&gt;&gt;D: bb_upsert_book()
+            B--&gt;&gt;W: 200 — book
+        else Missing / unavailable
+            B--&gt;&gt;W: 404 / 503
+        end
+    end
+    W--&gt;&gt;U: render detail page
+</code></pre>
+<hr />
+<h2 id="6-flow-authentication">6. Flow — Authentication</h2>
+<pre><code class="language-mermaid">sequenceDiagram
+    actor U as User
+    participant W as frontend
+    participant B as backend
+    participant D as WordPress Users
+
+    U-&gt;&gt;W: sign up (name, email, password)
+    W-&gt;&gt;B: POST /register
+    B-&gt;&gt;D: wp_create_user()
+    B-&gt;&gt;B: issue token → store SHA-256 hash
+    B--&gt;&gt;W: { token, user }
+    W-&gt;&gt;W: save token in localStorage
+
+    Note over W,B: every later request sends&lt;br/&gt;Authorization: Bearer token
+
+    W-&gt;&gt;B: GET /me (Bearer token)
+    B-&gt;&gt;D: resolve token → user
+    B--&gt;&gt;W: current user
+</code></pre>
+<hr />
+<h2 id="7-backend-internal-pipeline-function-level">7. Backend internal pipeline (function-level)</h2>
+<pre><code class="language-mermaid">flowchart TD
+    A[&quot;GET /books/v1/search?q=&quot;] --&gt; B[&quot;bb_rest_search()&quot;]
+    B --&gt; C[&quot;bb_search_stored(q)&quot;]
+    C --&gt; D{&quot;matches in&lt;br/&gt;database?&quot;}
+    D --&gt;|Yes| E[&quot;bb_book_to_array()&lt;br/&gt;for each&quot;] --&gt; R[&quot;200 · JSON&quot;]
+    D --&gt;|No| F[&quot;bb_google_search(q)&quot;]
+    F --&gt; G[&quot;bb_google_url() + wp_remote_get()&quot;]
+    G --&gt; H{&quot;Google&lt;br/&gt;responded?&quot;}
+    H --&gt;|Yes| I[&quot;bb_normalize() each&quot;] --&gt; J[&quot;bb_upsert_book()&lt;br/&gt;store permanently&quot;] --&gt; R
+    H --&gt;|No| K[&quot;503 · unavailable&quot;]
+
+    classDef ok fill:#e5efe9,stroke:#2f6b57,color:#1c3f34;
+    classDef bad fill:#f6dcdc,stroke:#c0392b,color:#5a1f1a;
+    class E,I,J,R ok;
+    class K bad;
+</code></pre>
+<hr />
+<h2 id="8-resilience">8. Resilience</h2>
+<pre><code class="language-mermaid">flowchart TD
+    A[&quot;Search q&quot;] --&gt; B{&quot;Saved in&lt;br/&gt;database?&quot;}
+    B --&gt;|Yes| C[&quot;Return saved books&lt;br/&gt;permanent · 0 API calls&quot;]
+    B --&gt;|No| D{&quot;Google&lt;br/&gt;available?&quot;}
+    D --&gt;|Yes| E[&quot;Fetch + store&lt;br/&gt;permanently&quot;] --&gt; F[&quot;Return books&quot;]
+    D --&gt;|No| G[&quot;503&lt;br/&gt;never fabricated data&quot;]
+
+    classDef ok fill:#bbf7d0,stroke:#16a34a,color:#08331c;
+    classDef bad fill:#fecaca,stroke:#dc2626,color:#5a1a1a;
+    class C,F ok;
+    class G bad;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repeat search</td>
+<td>Served from DB — <strong>0 Google calls</strong></td>
+</tr>
+<tr>
+<td>Google down, book previously saved</td>
+<td>Still served</td>
+</tr>
+<tr>
+<td>Google down, brand-new query</td>
+<td><code>503</code> — no fake data</td>
+</tr>
+<tr>
+<td>API key removed</td>
+<td>Everything already saved keeps working</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-data-model">9. Data model</h2>
+<pre><code class="language-mermaid">erDiagram
+    BOOK {
+        string google_id PK
+        string title
+        json   authors
+        string publisher
+        text   description
+        string thumbnail
+        int    pages
+        json   categories
+        float  rating
+    }
+    USER {
+        int    id PK
+        string name
+        string email
+        string bb_token_hash
+    }
+    FAVORITE {
+        string google_id FK
+    }
+    USER ||--o{ FAVORITE : &quot;saves (client-side)&quot;
+    FAVORITE }o--|| BOOK : references
+</code></pre>
+<hr />
+<h2 id="10-deployment">10. Deployment</h2>
+<pre><code class="language-mermaid">flowchart LR
+    user((User))
+    cdn[&quot;nginx / CDN&lt;br/&gt;frontend static build&quot;]
+    wp[&quot;backend — WordPress&quot;]
+    db[(&quot;MySQL&quot;)]
+    g[&quot;Google Books API&quot;]
+
+    user --&gt; cdn
+    cdn --&gt;|&quot;/wp-json/*&quot;| wp
+    wp --&gt; db
+    wp --&gt;|&quot;new queries only&quot;| g
+
+    classDef ext fill:#f0e7d6,stroke:#9c6f2f,color:#4a3412;
+    class g ext;
+</code></pre>
+<p>See <a href="how-it-works.html">How It Works</a> for a function-by-function breakdown, and the
+<a href="swagger.html">Swagger API Reference</a> for the live endpoint docs.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

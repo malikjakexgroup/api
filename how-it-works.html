@@ -1,0 +1,1340 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://malikjakexgroup.github.io/book-docs/how-it-works.html">
+      
+      
+        <link rel="prev" href="architecture.html">
+      
+      
+        <link rel="next" href="api.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>How It Works - Book Platform Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-it-works-function-by-function" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Book Platform Docs" class="md-header__button md-logo" aria-label="Book Platform Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Book Platform Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How It Works
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Book Platform Docs" class="md-nav__button md-logo" aria-label="Book Platform Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Book Platform Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How It Works
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="how-it-works.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How It Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-big-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The big picture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-backend-book-backend-wordpress-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Backend — book-backend (WordPress plugin)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Backend — book-backend (WordPress plugin)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-book-backendphp-bootstrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 book-backend.php — bootstrap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-google-booksphp-the-external-data-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 google-books.php — the external data source
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-storephp-permanent-storage-custom-post-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 store.php — permanent storage (Custom Post Type)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-cachephp-fast-repeat-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 cache.php — fast repeat responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-authphp-token-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 auth.php — token authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-restphp-the-api-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 rest.php — the API surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-frontend-book-web-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Frontend — book-web (React)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Frontend — book-web (React)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-servicesapijs-the-only-network-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 services/api.js — the only network layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-hooks-data-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Hooks — data + state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-pages-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Pages &amp; components
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-request-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Request flows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Request flows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-open-a-book" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Open a book
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-sign-up-log-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Sign up / log in
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Data model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-why-it-is-resilient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Why it is resilient
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-deployment-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Deployment topology
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="swagger.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference (Swagger)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="deployment.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-big-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The big picture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-backend-book-backend-wordpress-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Backend — book-backend (WordPress plugin)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Backend — book-backend (WordPress plugin)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-book-backendphp-bootstrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 book-backend.php — bootstrap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-google-booksphp-the-external-data-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 google-books.php — the external data source
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-storephp-permanent-storage-custom-post-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 store.php — permanent storage (Custom Post Type)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-cachephp-fast-repeat-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 cache.php — fast repeat responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-authphp-token-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 auth.php — token authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-restphp-the-api-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 rest.php — the API surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-frontend-book-web-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Frontend — book-web (React)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Frontend — book-web (React)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-servicesapijs-the-only-network-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 services/api.js — the only network layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-hooks-data-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Hooks — data + state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-pages-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Pages &amp; components
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-request-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Request flows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Request flows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-open-a-book" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Open a book
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-sign-up-log-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Sign up / log in
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Data model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-why-it-is-resilient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Why it is resilient
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-deployment-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Deployment topology
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="how-it-works-function-by-function">How It Works — Function by Function</h1>
+<p>This page explains the platform end to end: every component, every important
+function, and the exact path a request takes.</p>
+<hr />
+<h2 id="1-the-big-picture">1. The big picture</h2>
+<pre><code>┌──────────────┐   HTTPS    ┌────────────────────────────┐   HTTPS   ┌───────────────┐
+│  book-web    │ ─────────▶ │  WordPress + book-backend  │ ────────▶ │ Google Books  │
+│  (React SPA) │            │  (REST API + storage)      │           │     API       │
+│              │ ◀───────── │                            │ ◀──────── │               │
+└──────────────┘   JSON     └────────────┬───────────────┘   JSON    └───────────────┘
+                                          │
+                                   ┌──────┴───────┐
+                                   │   Database   │  (books stored permanently)
+                                   │ MySQL/SQLite │
+                                   └──────────────┘
+</code></pre>
+<ul>
+<li><strong>book-web</strong> never talks to Google directly — only to the backend.</li>
+<li><strong>book-backend</strong> is the single source of truth: it fetches, normalizes, stores,
+  and serves. Google is contacted <strong>only for brand-new searches</strong>.</li>
+<li><strong>Storage is permanent</strong>: once a book is saved, it is served from the database
+  forever (store-first).</li>
+</ul>
+<hr />
+<h2 id="2-backend-book-backend-wordpress-plugin">2. Backend — <code>book-backend</code> (WordPress plugin)</h2>
+<p>The plugin is plain, prefixed PHP (<code>bb_</code>) split by responsibility.</p>
+<h3 id="21-book-backendphp-bootstrap">2.1 <code>book-backend.php</code> — bootstrap</h3>
+<table>
+<thead>
+<tr>
+<th>Function / hook</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plugin header</td>
+<td>Registers the plugin with WordPress; defines <code>BB_CACHE_TTL</code>.</td>
+</tr>
+<tr>
+<td><code>require_once …</code></td>
+<td>Loads the four include files.</td>
+</tr>
+<tr>
+<td><code>add_action('init', 'bb_register_book_cpt')</code></td>
+<td>Registers the <code>book</code> post type on every load.</td>
+</tr>
+<tr>
+<td><code>add_action('rest_api_init', 'bb_register_routes')</code></td>
+<td>Registers the public book endpoints.</td>
+</tr>
+<tr>
+<td><code>add_action('rest_api_init', 'bb_register_auth_routes')</code></td>
+<td>Registers register/login/me.</td>
+</tr>
+<tr>
+<td>CORS filter</td>
+<td>Sends <code>Access-Control-Allow-*</code> headers so the React app (different origin) can call the API.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-google-booksphp-the-external-data-source">2.2 <code>google-books.php</code> — the external data source</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Input → Output</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bb_google_url($path, $args)</code></td>
+<td>path + params → URL</td>
+<td>Builds the Google Books URL, appends <code>BB_GOOGLE_API_KEY</code> if defined.</td>
+</tr>
+<tr>
+<td><code>bb_normalize($item)</code></td>
+<td>Google volume → our fields</td>
+<td>Maps Google's nested <code>volumeInfo</code> into our flat book shape (title, authors, thumbnail, pages…). Safe on missing fields.</td>
+</tr>
+<tr>
+<td><code>bb_google_search($q)</code></td>
+<td>query → array | null</td>
+<td>Calls Google; returns normalized books, or <code>null</code> if Google is unavailable/rate-limited.</td>
+</tr>
+<tr>
+<td><code>bb_google_get($id)</code></td>
+<td>volume id → book | 'not_found' | null</td>
+<td>Fetches one volume; distinguishes "missing" (404) from "unavailable".</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-storephp-permanent-storage-custom-post-type">2.3 <code>store.php</code> — permanent storage (Custom Post Type)</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bb_register_book_cpt()</code></td>
+<td>Declares the <code>book</code> post type so wp-admin lists/edits books for free.</td>
+</tr>
+<tr>
+<td><code>bb_find_book_post($google_id)</code></td>
+<td>Looks up an existing book by its <code>google_id</code> meta. Returns the post id or 0.</td>
+</tr>
+<tr>
+<td><code>bb_upsert_book($data)</code></td>
+<td>Insert-or-update: creates/updates the <code>book</code> post and its meta (authors, thumbnail, rating…). The <strong>single writer</strong> of book data.</td>
+</tr>
+<tr>
+<td><code>bb_search_stored($q)</code></td>
+<td>Full-text search across stored books — the permanent, no-API search path.</td>
+</tr>
+<tr>
+<td><code>bb_book_to_array($post_id)</code></td>
+<td>Builds the public JSON shape from a stored post.</td>
+</tr>
+<tr>
+<td><code>bb_is_fresh($post_id)</code></td>
+<td>Freshness helper (kept for reference; store-first no longer expires).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-cachephp-fast-repeat-responses">2.4 <code>cache.php</code> — fast repeat responses</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bb_cache_key($kind, $val)</code></td>
+<td>Deterministic cache key (<code>bb_search_{hash}</code>).</td>
+</tr>
+<tr>
+<td><code>bb_cache_get($key)</code> / <code>bb_cache_set($key, $v)</code></td>
+<td>Read/write WordPress transients (Redis-backed if an object cache exists).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="25-authphp-token-authentication">2.5 <code>auth.php</code> — token authentication</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bb_issue_token($user_id)</code></td>
+<td>Generates a random token, stores its <strong>SHA-256 hash</strong> in user meta, returns the raw token.</td>
+</tr>
+<tr>
+<td><code>bb_user_by_token($token)</code></td>
+<td>Resolves a bearer token back to a <code>WP_User</code>.</td>
+</tr>
+<tr>
+<td><code>bb_bearer_token($req)</code></td>
+<td>Extracts the token from the <code>Authorization: Bearer …</code> header.</td>
+</tr>
+<tr>
+<td><code>bb_user_public($user)</code></td>
+<td>Shapes a safe user object (id, name, email — never the password).</td>
+</tr>
+<tr>
+<td><code>bb_rest_register($req)</code></td>
+<td>Validates input, creates a real WordPress user, issues a token.</td>
+</tr>
+<tr>
+<td><code>bb_rest_login($req)</code></td>
+<td>Verifies credentials via <code>wp_authenticate</code>, issues a token.</td>
+</tr>
+<tr>
+<td><code>bb_rest_me($req)</code></td>
+<td>Returns the current user for a valid token, else <code>401</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="26-restphp-the-api-surface">2.6 <code>rest.php</code> — the API surface</h3>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Handler</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /wp-json/books/v1/search?q=</code></td>
+<td><code>bb_rest_search</code></td>
+<td><strong>Store-first</strong>: return saved matches; else fetch Google once, store, return; <code>503</code> if nothing found and Google is down.</td>
+</tr>
+<tr>
+<td><code>GET /wp-json/books/v1/book/{id}</code></td>
+<td><code>bb_rest_get_book</code></td>
+<td>Saved book if present (permanent); else fetch once, store, return; <code>404</code>/<code>503</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>GET /wp-json/books/v1/categories</code></td>
+<td><code>bb_rest_categories</code></td>
+<td>Static category list.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-frontend-book-web-react">3. Frontend — <code>book-web</code> (React)</h2>
+<h3 id="31-servicesapijs-the-only-network-layer">3.1 <code>services/api.js</code> — the only network layer</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Calls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>searchBooks(q)</code></td>
+<td><code>GET /search?q=</code></td>
+</tr>
+<tr>
+<td><code>getBook(id)</code></td>
+<td><code>GET /book/{id}</code></td>
+</tr>
+<tr>
+<td><code>registerUser</code> / <code>loginUser</code> / <code>fetchMe</code></td>
+<td>auth endpoints</td>
+</tr>
+<tr>
+<td><code>authHeaders()</code></td>
+<td>Attaches <code>Authorization: Bearer &lt;token&gt;</code> from <code>localStorage</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-hooks-data-state">3.2 Hooks — data + state</h3>
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>useSearch(q)</code></td>
+<td>TanStack Query wrapper around <code>searchBooks</code> — caching, loading, error states.</td>
+</tr>
+<tr>
+<td><code>useBook(id)</code></td>
+<td>Same for a single book.</td>
+</tr>
+<tr>
+<td><code>useAuth()</code></td>
+<td>Auth context: <code>user</code>, <code>login</code>, <code>register</code>, <code>logout</code>; restores session from the saved token on load.</td>
+</tr>
+<tr>
+<td><code>useFavorites()</code></td>
+<td>Favorites in <code>localStorage</code>, synced across tabs.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-pages-components">3.3 Pages &amp; components</h3>
+<table>
+<thead>
+<tr>
+<th>Piece</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Search</code></td>
+<td>Hero, search bar, suggestion chips, result grid, skeletons/empty states.</td>
+</tr>
+<tr>
+<td><code>BookDetails</code></td>
+<td>Cover, metadata, category tags, description, favorite button.</td>
+</tr>
+<tr>
+<td><code>Favorites</code></td>
+<td>Grid of saved books.</td>
+</tr>
+<tr>
+<td><code>Login</code> / <code>Signup</code></td>
+<td>Auth forms → <code>useAuth</code>.</td>
+</tr>
+<tr>
+<td><code>BookCard</code> / <code>BookCover</code> / <code>Stars</code> / <code>SearchBar</code></td>
+<td>Reusable UI.</td>
+</tr>
+<tr>
+<td><code>App</code></td>
+<td>Layout, header/nav, routes, logged-in state.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-request-flows">4. Request flows</h2>
+<h3 id="41-search">4.1 Search</h3>
+<pre><code>User types &quot;atomic habits&quot;
+  → useSearch → searchBooks(&quot;atomic habits&quot;)
+  → GET /wp-json/books/v1/search?q=atomic+habits
+     → bb_rest_search
+        → bb_search_stored()  ── found? ──▶ return saved books        (permanent, no Google)
+                              └─ empty? ──▶ bb_google_search()
+                                              ├─ ok  → bb_upsert_book() each → return
+                                              └─ null → 503 (nothing to serve)
+  → React renders BookCards
+</code></pre>
+<h3 id="42-open-a-book">4.2 Open a book</h3>
+<pre><code>Click card → getBook(id) → GET /book/{id}
+  → bb_rest_get_book
+     → bb_find_book_post()  ── exists? ──▶ return saved (permanent)
+                            └─ new?    ──▶ bb_google_get() → bb_upsert_book() → return
+</code></pre>
+<h3 id="43-sign-up-log-in">4.3 Sign up / log in</h3>
+<pre><code>Signup form → registerUser({name,email,password})
+  → POST /register → bb_rest_register
+     → wp_create_user() → bb_issue_token() → { token, user }
+  → useAuth saves token in localStorage → header shows &quot;Hi, &lt;name&gt;&quot;
+
+Later requests → authHeaders() → Authorization: Bearer &lt;token&gt;
+  → bb_rest_me() resolves token → current user
+</code></pre>
+<hr />
+<h2 id="5-data-model">5. Data model</h2>
+<p><strong><code>book</code> (Custom Post Type)</strong> — <code>post_title</code> = title, <code>post_content</code> = description, plus meta:
+<code>google_id</code> (unique), <code>authors</code>, <code>publisher</code>, <code>thumbnail</code>, <code>language</code>, <code>pages</code>, <code>categories</code>, <code>rating</code>, <code>cached_at</code>.</p>
+<p><strong>Users</strong> — standard WordPress users; auth token hash stored as <code>bb_token</code> user meta.</p>
+<hr />
+<h2 id="6-why-it-is-resilient">6. Why it is resilient</h2>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repeat search</td>
+<td>Served from the database — <strong>0 Google calls</strong></td>
+</tr>
+<tr>
+<td>Google rate-limited / down, book previously saved</td>
+<td>Still served (permanent store)</td>
+</tr>
+<tr>
+<td>Google down, brand-new query never saved</td>
+<td><code>503</code> — never fabricated data</td>
+</tr>
+<tr>
+<td>API key removed</td>
+<td>Everything already saved keeps working</td>
+</tr>
+</tbody>
+</table>
+<p>This design keeps the app fast, cheap on API quota, and available even when the
+external provider is not.</p>
+<hr />
+<h2 id="7-deployment-topology">7. Deployment topology</h2>
+<pre><code>        Browser
+           │
+   ┌───────┴────────┐
+   │  book-web      │  static build served by nginx (or `npm run dev`)
+   └───────┬────────┘
+           │ /wp-json/books/v1/*
+   ┌───────┴────────┐
+   │  WordPress     │  Apache/PHP + book-backend plugin
+   │  + MySQL       │  (or portable PHP + SQLite for low-resource dev)
+   └───────┬────────┘
+           │ only on new queries
+     Google Books API
+</code></pre>
+<p>Local dev runs via Docker (<code>make up</code>) or portable PHP + SQLite — see
+<a href="deployment.html">Deployment</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

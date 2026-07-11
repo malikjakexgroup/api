@@ -1,0 +1,199 @@
+openapi: 3.0.3
+info:
+  title: Book Platform API
+  version: 1.0.0
+  description: >
+    REST API for the Book Platform (the `book-backend` WordPress plugin).
+    A store-first Google Books proxy with token authentication.
+    Every searched book is stored permanently; Google is called only for new queries.
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: http://localhost:8080/wp-json
+    description: Local development (WordPress)
+
+tags:
+  - name: Books
+    description: Search and read books.
+  - name: Auth
+    description: Register, log in, and identify the current user.
+
+paths:
+  /books/v1/search:
+    get:
+      tags: [Books]
+      summary: Search books
+      description: >
+        Store-first. Returns books already saved in WordPress; if the query is new,
+        fetches from Google Books once and stores the results permanently.
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: Search text (title, author, or topic).
+          schema: { type: string }
+          example: atomic habits
+      responses:
+        "200":
+          description: A list of books.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Book" }
+        "400": { description: Missing query parameter `q`. }
+        "503":
+          description: Google unavailable and nothing stored yet.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+
+  /books/v1/book/{id}:
+    get:
+      tags: [Books]
+      summary: Get one book
+      description: Returns a saved book, or fetches it from Google once and stores it.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Google Books volume id.
+          schema: { type: string }
+          example: fmyBAwAAQBAJ
+      responses:
+        "200":
+          description: A book.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Book" }
+        "404": { description: Book not found. }
+        "503": { description: Google unavailable and not stored. }
+
+  /books/v1/categories:
+    get:
+      tags: [Books]
+      summary: List categories
+      responses:
+        "200":
+          description: Category names.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { type: string }
+              example: ["Fiction", "Science", "Business", "Self-Help"]
+
+  /books/v1/register:
+    post:
+      tags: [Auth]
+      summary: Create an account
+      description: Creates a WordPress user and returns an auth token.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/RegisterInput" }
+      responses:
+        "200":
+          description: Token and user.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/AuthResponse" }
+        "400": { description: Invalid email or password too short. }
+        "409": { description: An account with this email already exists. }
+
+  /books/v1/login:
+    post:
+      tags: [Auth]
+      summary: Log in
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/LoginInput" }
+      responses:
+        "200":
+          description: Token and user.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/AuthResponse" }
+        "401": { description: Wrong email or password. }
+
+  /books/v1/me:
+    get:
+      tags: [Auth]
+      summary: Current user
+      description: Returns the logged-in user for a valid Bearer token.
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: The current user.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/User" }
+        "401": { description: Not logged in. }
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: "Send the token from /login or /register as: Authorization: Bearer <token>"
+
+  schemas:
+    Book:
+      type: object
+      properties:
+        google_id: { type: string, example: fmyBAwAAQBAJ }
+        title: { type: string, nullable: true, example: Atomic Habits }
+        authors:
+          type: array
+          items: { type: string }
+          example: ["James Clear"]
+        publisher: { type: string, nullable: true, example: Penguin }
+        description: { type: string, nullable: true }
+        thumbnail: { type: string, nullable: true }
+        language: { type: string, nullable: true, example: en }
+        pages: { type: integer, nullable: true, example: 320 }
+        categories:
+          type: array
+          items: { type: string }
+          example: ["Self-Help"]
+        rating: { type: number, nullable: true, example: 4.5 }
+
+    User:
+      type: object
+      properties:
+        id: { type: integer, example: 2 }
+        name: { type: string, example: Mohammad Malik }
+        email: { type: string, example: malik@example.com }
+
+    AuthResponse:
+      type: object
+      properties:
+        token: { type: string, example: "f987e1c3e492abeea00b6443664036fc" }
+        user: { $ref: "#/components/schemas/User" }
+
+    RegisterInput:
+      type: object
+      required: [email, password]
+      properties:
+        name: { type: string, example: Mohammad Malik }
+        email: { type: string, format: email, example: malik@example.com }
+        password: { type: string, minLength: 6, example: secret123 }
+
+    LoginInput:
+      type: object
+      required: [email, password]
+      properties:
+        email: { type: string, format: email, example: malik@example.com }
+        password: { type: string, example: secret123 }
+
+    Error:
+      type: object
+      properties:
+        code: { type: string, example: unavailable }
+        message: { type: string, example: Google Books unavailable and nothing stored yet }
